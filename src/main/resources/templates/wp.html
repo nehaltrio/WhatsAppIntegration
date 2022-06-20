@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link th:href="@{/style.css}" rel="stylesheet"/>
+    <link rel="stylesheet" href="style.css">
+
+    <script type='text/javascript'>
+        function addFields() {
+            var number = document.getElementById("member").value;
+            var container = document.getElementById("container");
+            while (container.hasChildNodes()) {
+                container.removeChild(container.lastChild);
+            }
+            for (i = 0; i < number; i++) {
+                container.appendChild(document.createTextNode("Item " + (i + 1)));
+                var input = document.createElement("input");
+                input.type = "text";
+                input.name = "wpText";
+                input.required;
+                container.appendChild(input);
+                container.appendChild(document.createElement("br"));
+            }
+        }
+    </script>
+
+
+</head>
+<body>
+
+<div class="modal-box">
+    <h2>Order Box</h2>
+    <form action="whatsapp" method="post">
+        <div class="user-box">
+            <input type="text" name="wpNum" required="">
+            <label>WhatsApp Number</label>
+        </div>
+        <div class="user-box">
+            <input type="text" id="member" name="member" required="">
+            <label>Number Of Items</label>
+        </div>
+        <a href="#" id="filldetails" onclick="addFields()">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            Submit
+        </a>
+        <br>
+        <br>
+        <div class="user-box" id="container"></div>
+        <button type="submit">Add to Cart</button>
+    </form>
+</div>
+
+</body>
+</html>
